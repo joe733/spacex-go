@@ -1,3 +1,4 @@
+import 'package:animations/animations.dart';
 import 'package:big_tip/big_tip.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_i18n/flutter_i18n.dart';
@@ -128,22 +129,29 @@ class LaunchesTab extends StatelessWidget {
     return Consumer<LaunchesRepository>(
       builder: (context, model, child) {
         final Launch launch = model.launches(type)[index];
-        return Column(children: <Widget>[
-          ListCell(
-            leading: HeroImage.list(
-              url: launch.patchUrl,
-              tag: launch.getNumber,
-            ),
-            title: launch.name,
-            subtitle: launch.getLaunchDate(context),
-            trailing: MissionNumber(launch.getNumber),
-            onTap: () => Navigator.push(
-              context,
-              MaterialPageRoute(builder: (_) => LaunchPage(launch.number)),
-            ),
+        return OpenContainer(
+          closedColor: Color(0xFF272727),
+          openColor: Color(0xFF272727),
+          tappable: false,
+          openBuilder: (_, openContainer) => LaunchPage(launch.number),
+          closedShape: const RoundedRectangleBorder(),
+          closedElevation: 1,
+          closedBuilder: (_, openContainer) => Column(
+            children: <Widget>[
+              ListCell(
+                leading: HeroImage.list(
+                  url: launch.patchUrl,
+                  tag: launch.getNumber,
+                ),
+                onTap: openContainer,
+                title: launch.name,
+                subtitle: launch.getLaunchDate(context),
+                trailing: MissionNumber(launch.getNumber),
+              ),
+              Separator.divider(indent: 72)
+            ],
           ),
-          Separator.divider(indent: 72)
-        ]);
+        );
       },
     );
   }
