@@ -258,10 +258,9 @@ class ConnectionError<T extends BaseRepository> extends StatelessWidget {
           'spacex.other.loading_error.reload',
         ),
         actionCallback: () async => _onRefresh(context, model),
-        actionStyle: TextStyle(
-          fontFamily: 'ProductSans',
+        actionStyle: GoogleFonts.varelaRound(
           fontWeight: FontWeight.bold,
-          fontSize: 17,
+          fontSize: 16,
         ),
         child: Icon(Icons.cloud_off),
       ),
