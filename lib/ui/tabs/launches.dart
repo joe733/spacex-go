@@ -130,12 +130,12 @@ class LaunchesTab extends StatelessWidget {
       builder: (context, model, child) {
         final Launch launch = model.launches(type)[index];
         return OpenContainer(
-          closedColor: Color(0xFF272727),
-          openColor: Color(0xFF272727),
+          closedColor: Theme.of(context).scaffoldBackgroundColor,
+          openColor: Theme.of(context).scaffoldBackgroundColor,
           tappable: false,
           openBuilder: (_, openContainer) => LaunchPage(launch.number),
           closedShape: const RoundedRectangleBorder(),
-          closedElevation: 1,
+          closedElevation: 0,
           closedBuilder: (_, openContainer) => Column(
             children: <Widget>[
               ListCell(
