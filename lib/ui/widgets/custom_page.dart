@@ -63,8 +63,8 @@ class SimplePage extends StatelessWidget {
       appBar: AppBar(
         title: Text(
           title,
-          style: GoogleFonts.varelaRound(
-            fontWeight: FontWeight.bold,
+          style: GoogleFonts.nunito(
+            fontWeight: FontWeight.w600,
           ),
         ),
         centerTitle: true,
@@ -258,8 +258,8 @@ class ConnectionError<T extends BaseRepository> extends StatelessWidget {
           'spacex.other.loading_error.reload',
         ),
         actionCallback: () async => _onRefresh(context, model),
-        actionStyle: GoogleFonts.varelaRound(
-          fontWeight: FontWeight.bold,
+        actionStyle: GoogleFonts.nunito(
+          fontWeight: FontWeight.w600,
           fontSize: 16,
         ),
         child: Icon(Icons.cloud_off),
